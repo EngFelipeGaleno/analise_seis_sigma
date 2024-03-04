@@ -32,7 +32,7 @@ import streamlit as st
 
 """# 2 - Lendo os dados"""
 
-df = pd.read_excel('/content/drive/MyDrive/datasets/Vale/Produção_CKS.xlsm', sheet_name='Variabilidade', usecols=list(range(5)))
+df = pd.read_excel('Produção_CKS.xlsm', sheet_name='Variabilidade', usecols=list(range(5)))
 
 """# 3 - Entendimento do dados"""
 
