@@ -62,25 +62,18 @@ df_cv = df.groupby(['ano', 'mes','Sistema produtivo'])['Produção_ajuste'].agg(
 df_cv.columns = ['Média', 'Desvio_Padrão']
 df_cv['Coeficiente_var'] = round(df_cv['Desvio_Padrão'] / df_cv['Média'], 4)*100
 df_cv = df_cv.reset_index()
-df_cv
-
-df_cv.info()
 
 df_cv_acumulado = df_cv.groupby(['Sistema produtivo'])['Média'].agg(['mean', 'std']).round(2)
 df_cv_acumulado.columns = ['Média', 'Desvio_Padrão']
 df_cv_acumulado['Coeficiente_var'] = round(df_cv_acumulado['Desvio_Padrão'] / df_cv_acumulado['Média'], 4)*100
 df_cv_acumulado = df_cv_acumulado.reset_index()
-df_cv_acumulado
 
 df_cv_total = df_cv.groupby(['ano', 'mes'])['Média'].agg(['sum', 'std']).round(2)
 df_cv_total.columns = ['Média', 'Desvio_Padrão']
 df_cv_total['Coeficiente_var'] = round(df_cv_total['Desvio_Padrão'] / df_cv_total['Média'], 4)*100
 df_cv_total = df_cv_total.reset_index()
-df_cv_total
 
 """# 4 - Dashboard"""
-
-df_cv_total.columns
 
 st.set_page_config(layout="wide")
 
@@ -106,7 +99,3 @@ st.plotly_chart(fig)
 st.header('Gráfico de Média Anual de Produção por Sistema Produtivo')
 fig = px.bar(df_cv_acumulado, x='Sistema produtivo', y='Média', color='Sistema produtivo', barmode='group')
 st.plotly_chart(fig)
-
-# prompt: como ver o dashboard criado na célula anterior?
-
-Run the code in the previous cell. Then, click on the "Dashboard de Produção" tab in the Colab sidebar to view the dashboard.
