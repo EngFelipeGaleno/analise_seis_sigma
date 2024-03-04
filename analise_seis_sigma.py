@@ -12,7 +12,7 @@ drive.mount('/content/drive')
 
 """# 1 - Importando a libs"""
 
-!pip install streamlit
+# !pip install streamlit
 
 # Commented out IPython magic to ensure Python compatibility.
 # %reset
